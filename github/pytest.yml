@@ -1,0 +1,29 @@
+name: Run Pytest with Allure
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install allure-pytest
+
+      - name: Run tests
+        run: pytest --alluredir=allure_results -v
+
+      - name: Generate Allure report
+        run: |
+          sudo apt-get install -y allure
+          allure generate allure_results -o allure_report

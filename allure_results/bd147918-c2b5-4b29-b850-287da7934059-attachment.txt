@@ -1,0 +1,2 @@
+2025-06-12 17:40:28.005 | INFO     | test_mocking:test_mock_request:11 - Запрос к мокированному API начат
+2025-06-12 17:40:28.006 | SUCCESS  | test_mocking:test_mock_request:30 - Тест прошёл успешно!
